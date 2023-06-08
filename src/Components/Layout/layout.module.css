@@ -32,6 +32,11 @@
 }
 @media screen and (min-width: 768px) {
   .logoWitch {
-    font-size: 10em;
+    font-size: 120px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .font {
+    font-size: 15em;
   }
 }
