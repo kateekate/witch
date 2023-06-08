@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url("../../../public/Assets/Fonts/RezaZulmiAlfaizi.ttf")
+    format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  outline: none;
+}
+
+.wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #d8e1e1ad;
+}
+
+.logoWitch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: "CustomFont", Solid, sans-serif;
+  font-size: 10em;
+  color: #5f98c6;
+  -webkit-text-stroke: 0.5px #bbd2e5;
+  text-shadow: -6px 9px 7px #1d2c5e;
+}

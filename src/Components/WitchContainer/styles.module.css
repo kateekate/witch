@@ -1,0 +1,27 @@
+.witchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.witchCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3vw 5.5vw;
+  width: 90%;
+  height: 32vw;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform .2s;
+  box-shadow: 0 15px 40px 0 currentColor;
+}
+
+@media screen and (min-width: 880px) {
+  .witchCard {
+    width: 30%;
+    height: 200px;
+    padding: 1.5vw;
+  }
+}
