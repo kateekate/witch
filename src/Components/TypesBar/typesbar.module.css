@@ -12,7 +12,7 @@
   box-shadow: 0 0 10px 5px #d5d5d5;
 }
 
-.typesbar a {
+.icon {
   display: flex;
   width: 7vw;
   height: 7vw;
@@ -23,7 +23,8 @@
   transition: transform .3s;
 }
 
-.typesbar a img {
+
+.icon img {
   width: 100%;
   height: 100%;
 }
