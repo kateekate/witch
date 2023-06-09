@@ -6,9 +6,13 @@ function Icon() {
   return (
     <>
       <motion.div
-        whileHover={{ scale: 1.5 }}
-        transition={{ type: "spring", stiffness: 900, damping: 10 }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 0 10px #ff0000",
+          transition: { duration: 0.3, ease: "easeInOut" },
+        }}
         className={styles.icon}
+        key="fire"
       >
         <img
           src={process.env.PUBLIC_URL + "/Assets/types-icons/fire.png"}
@@ -16,8 +20,11 @@ function Icon() {
         />
       </motion.div>
       <motion.div
-        whileHover={{ scale: 1.6 }}
-        transition={{ type: "spring", stiffness: 900, damping: 10 }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 0 10px #00FFFF",
+          transition: { duration: 0.3, ease: "easeInOut" },
+        }}
         className={styles.icon}
       >
         <img
@@ -26,8 +33,11 @@ function Icon() {
         />
       </motion.div>
       <motion.div
-        whileHover={{ scale: 1.6 }}
-        transition={{ type: "spring", stiffness: 900, damping: 10 }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 0 10px #66FF00",
+          transition: { duration: 0.3, ease: "easeInOut" },
+        }}
         className={styles.icon}
       >
         <img
@@ -36,8 +46,11 @@ function Icon() {
         />
       </motion.div>
       <motion.div
-        whileHover={{ scale: 1.6 }}
-        transition={{ type: "spring", stiffness: 900, damping: 10 }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 0 10px #B9D9EB",
+          transition: { duration: 0.3, ease: "easeInOut" },
+        }}
         className={styles.icon}
       >
         <img
@@ -46,8 +59,11 @@ function Icon() {
         />
       </motion.div>
       <motion.div
-        whileHover={{ scale: 1.6 }}
-        transition={{ type: "spring", stiffness: 900, damping: 10 }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 0 10px #FFFFFF",
+          transition: { duration: 0.3, ease: "easeInOut" },
+        }}
         className={styles.icon}
       >
         <img

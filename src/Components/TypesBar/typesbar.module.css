@@ -7,9 +7,9 @@
   justify-content: center;
   margin: 0 auto 30px;
   gap: 10px;
-  background: #eef5fd;
+  background: #1a2c54;
   border-radius: 10vw;
-  box-shadow: 0 0 10px 5px #d5d5d5;
+  box-shadow: 0 0 10px 5px #b45ebb73;
 }
 
 .icon {
@@ -19,8 +19,7 @@
   padding: 1.5vw;
   cursor: pointer;
   border-radius: 100%;
-  background: whitesmoke;
-  transition: transform .3s;
+  background: #e6e6e6;
 }
 
 

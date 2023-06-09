@@ -1,6 +1,8 @@
 @font-face {
   font-family: "CustomFont";
-  src: url("../../../public/Assets/Fonts/RezaZulmiAlfaizi.ttf")
+  src: url("../../../public/Assets/Fonts/KeroKero-51BBx.ttf")
+  /* src: url("../../../public/Assets/Fonts/PocketMonk-15ze.ttf") */
+
     format("truetype");
 }
 
@@ -15,7 +17,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #d8e1e1ad;
+  background-color: #2e0f38;
 }
 
 .logoWitch {
@@ -26,9 +28,9 @@
   padding: 0;
   font-family: "CustomFont", Solid, sans-serif;
   font-size: 5em;
-  color: #5f98c6;
-  -webkit-text-stroke: 0.5px #bbd2e5;
-  text-shadow: -6px 9px 7px #1d2c5e;
+  color: #703675;
+  -webkit-text-stroke: 0.5px #000000;
+  text-shadow: -6px 9px 7px #000000;
 }
 @media screen and (min-width: 768px) {
   .logoWitch {
