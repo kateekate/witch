@@ -1,6 +1,13 @@
+.layout {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #2e0f38;
+}
+
 .typesbar {
   display: flex;
-  /* width: 100%; */
   padding: 15px 2vw;
   flex-wrap: wrap;
   align-items: center;
@@ -22,8 +29,14 @@
   background: #e6e6e6;
 }
 
-
 .icon img {
   width: 100%;
   height: 100%;
+}
+
+.witchContainerCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 120px;
 }

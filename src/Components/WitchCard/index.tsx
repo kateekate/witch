@@ -4,11 +4,7 @@ import styles from "./styles.module.css";
 function WitchCard() {
   return (
     <>
-      <div className={styles.witchCard}>
-        <div>
-          <span></span>
-        </div>
-      </div>
+      <div className={styles.witchCard}></div>
       <div className={styles.witchCard}></div>
     </>
   );
