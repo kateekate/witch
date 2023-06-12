@@ -38,7 +38,6 @@ function CardsContainer() {
     if (activeIndex === null) {
       return null;
     }
-
     return <WitchCard />;
   };
 
@@ -46,12 +45,20 @@ function CardsContainer() {
     <div className={styles.layout}>
       <div className={styles.typesbar}>
         {CARDS.map((card, index) => (
-          <Icon
+          <motion.div
             key={index}
-            onClick={() => handleIconClick(index)}
-            src={card.src}
-            alt={card.alt}
-          />
+            whileTap={{
+              rotate: -90,
+              scale: 0.75,
+              transition: { duration: 0.5, ease: "easeInOut" },
+            }}
+          >
+            <Icon
+              onClick={() => handleIconClick(index)}
+              src={card.src}
+              alt={card.alt}
+            />{" "}
+          </motion.div>
         ))}
       </div>
       <div className={styles.witchContainerCards}>{renderCards()}</div>

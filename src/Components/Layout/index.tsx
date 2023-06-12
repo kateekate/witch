@@ -7,9 +7,7 @@ function Layout() {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.logoWitch}>W.I.T.C.H.</h1>
-      <AnimatePresence>
-        <Icon />
-      </AnimatePresence>
+      <Icon />
     </div>
   );
 }
