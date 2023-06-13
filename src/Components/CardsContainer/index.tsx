@@ -1,8 +1,7 @@
-import React, { FC, MouseEventHandler, useState } from "react";
+import React, { FC, MouseEventHandler, useEffect, useState } from "react";
 import styles from "./typesbar.module.css";
 import { motion } from "framer-motion";
-
-import WitchCard from "../WitchCard";
+import WitchCard, { Loader } from "../WitchCard";
 
 const CARDS = [
   {
@@ -29,16 +28,27 @@ const CARDS = [
 
 function CardsContainer() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleIconClick = (value: number) => {
     setActiveIndex((prev) => (prev === value ? null : value));
+    console.log("true");
+    setIsLoading(true);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("false");
+      setIsLoading(false);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [activeIndex]);
 
   const renderCards = () => {
     if (activeIndex === null) {
       return null;
     }
-    return <WitchCard />;
+    return isLoading ? <Loader /> : <WitchCard />;
   };
 
   return (

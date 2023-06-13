@@ -8,7 +8,7 @@ function WitchCard() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1850);
 
     return () => clearTimeout(timer);
   }, []);
@@ -44,7 +44,7 @@ function WitchCard() {
 
 export default WitchCard;
 
-function Loader() {
+export function Loader() {
   return (
     <div className={styles.loaderContainer}>
       <motion.svg
