@@ -3,17 +3,24 @@
   align-items: center;
   padding: 3vw 5.5vw;
   width: 90%;
-  height: 32vw;
+  /* height: 32vw; */
+  height: 50vw;
   background-color: #4d7b943b;
   cursor: pointer;
   border-radius: 8px;
   box-shadow: 0 15px 40px 0 currentColor;
 }
 
+.loaderContainer{
+  margin-top: 170px;
+}
+
 @media screen and (min-width: 768px) {
   .witchCard {
     width: 30%;
-    height: 700px;
+    /* height: 700px; */
+    height: 50vh;
     padding: 1.5vw;
   }
 }
+

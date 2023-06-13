@@ -57,7 +57,7 @@ function CardsContainer() {
               onClick={() => handleIconClick(index)}
               src={card.src}
               alt={card.alt}
-            />{" "}
+            />
           </motion.div>
         ))}
       </div>
