@@ -6,11 +6,19 @@ function WitchCard() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1850);
-
-    return () => clearTimeout(timer);
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://dummyjson.com/products");
+        if (response.ok) {
+          setIsLoading(false);
+        } else {
+          throw new Error("Error of loading data!!!");
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -58,7 +66,7 @@ export function Loader() {
           scale: [1, 1.2, 1],
         }}
         transition={{
-          duration: 2,
+          duration: 3,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut",

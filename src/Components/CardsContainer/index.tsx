@@ -37,12 +37,20 @@ function CardsContainer() {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log("false");
-      setIsLoading(false);
-    }, 0);
-    return () => clearTimeout(timer);
-  }, [activeIndex]);
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://dummyjson.com/products");
+        if (response.ok) {
+          setIsLoading(false);
+        } else {
+          throw new Error("Error of loading data!!!");
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
+  });
 
   const renderCards = () => {
     if (activeIndex === null) {
