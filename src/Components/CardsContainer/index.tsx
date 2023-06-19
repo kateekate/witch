@@ -1,7 +1,8 @@
 import React, { FC, MouseEventHandler, useEffect, useState } from "react";
 import styles from "./typesbar.module.css";
 import { motion } from "framer-motion";
-import WitchCard, { Loader } from "../WitchCard";
+import WitchCard from "../WitchCard";
+import { Loader } from "../Loader";
 
 const CARDS = [
   {
@@ -32,14 +33,13 @@ function CardsContainer() {
 
   const handleIconClick = (value: number) => {
     setActiveIndex((prev) => (prev === value ? null : value));
-    console.log("true");
     setIsLoading(true);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products");
+        const response = await fetch("");
         if (response.ok) {
           setIsLoading(false);
         } else {
@@ -56,7 +56,7 @@ function CardsContainer() {
     if (activeIndex === null) {
       return null;
     }
-    return isLoading ? <Loader /> : <WitchCard />;
+    return isLoading ? <Loader /> : <WitchCard activeIndex={activeIndex} />;
   };
 
   return (

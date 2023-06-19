@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { AnimatePresence, motion } from "framer-motion";
+import { Loader } from "../Loader";
+import { CardData } from "../CardData";
 
-function WitchCard() {
+function WitchCard({ activeIndex }: { activeIndex: number }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(1);
         const response = await fetch("http://localhost:9000/witch");
-        console.log(2);
         const jsonData = await response.json();
         setData(jsonData);
         if (response.ok) {
@@ -38,7 +38,7 @@ function WitchCard() {
             exit={{ opacity: 0, scale: 0 }}
             className={styles.witchCard}
           >
-            <CardData data={data} />
+            <CardData data={data} activeIndex={activeIndex} />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.75 }}
@@ -46,7 +46,7 @@ function WitchCard() {
             exit={{ opacity: 0, scale: 0 }}
             className={styles.witchCard}
           >
-            <CardData data={data} />
+            {/* <CardData data={data} /> */}
           </motion.div>
         </AnimatePresence>
       )}
@@ -55,46 +55,3 @@ function WitchCard() {
 }
 
 export default WitchCard;
-
-export function Loader() {
-  return (
-    <div className={styles.loaderContainer}>
-      <motion.svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 500 500"
-        width="150"
-        height="150"
-        animate={{
-          x: [0, 20, 0],
-          rotate: [0, 360],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
-      >
-        <image href={process.env.PUBLIC_URL + "/Assets/Loader/loader.png"} />
-      </motion.svg>
-    </div>
-  );
-}
-
-interface Data {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-}
-
-export function CardData({ data }: { data: Data[] }) {
-  return (
-    <>
-      {data.map((item: any) => (
-        <li key={item.id}>{item.name}</li>
-      ))}
-    </>
-  );
-}
