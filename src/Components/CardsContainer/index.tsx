@@ -1,62 +1,57 @@
-import React, { FC, MouseEventHandler, useEffect, useState } from "react";
+import React, { FC, MouseEventHandler, useState } from "react";
 import styles from "./typesbar.module.css";
 import { motion } from "framer-motion";
 import WitchCard from "../WitchCard";
 import { Loader } from "../Loader";
+import { WitchCardData } from "../../Interfaces/WitchCardData";
+import { getWitchCardByPower } from "../../Services/api";
 
 const CARDS = [
   {
     src: process.env.PUBLIC_URL + "Assets/types-icons/fire.png",
-    alt: "Fire",
+    power: "Fire",
   },
   {
     src: process.env.PUBLIC_URL + "Assets/types-icons/water.png",
-    alt: "Water",
+    power: "Water",
   },
   {
     src: process.env.PUBLIC_URL + "Assets/types-icons/earth.png",
-    alt: "Earth",
+    power: "Earth",
   },
   {
     src: process.env.PUBLIC_URL + "Assets/types-icons/air.png",
-    alt: "Air",
+    power: "Air",
   },
   {
     src: process.env.PUBLIC_URL + "Assets/types-icons/quintessence.png",
-    alt: "Quintessence",
+    power: "Quintessence",
   },
 ];
 
 function CardsContainer() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState<WitchCardData | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleIconClick = (value: number) => {
-    setActiveIndex((prev) => (prev === value ? null : value));
+  const handleIconClick = async (value: number, power: string) => {
     setIsLoading(true);
+    setActiveIndex((prev) => (prev === value ? null : value));
+    const newData = await getWitchCardByPower(power);
+    setData(newData);
+    setIsLoading(false);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("");
-        if (response.ok) {
-          setIsLoading(false);
-        } else {
-          throw new Error("Error of loading data!!!");
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  });
 
   const renderCards = () => {
     if (activeIndex === null) {
       return null;
+    } else if (isLoading) {
+      return <Loader />;
+    } else if (!data) {
+      return <span>No data</span>;
+    } else {
+      return <WitchCard data={data} />;
     }
-    return isLoading ? <Loader /> : <WitchCard activeIndex={activeIndex} />;
   };
 
   return (
@@ -72,9 +67,9 @@ function CardsContainer() {
             }}
           >
             <Icon
-              onClick={() => handleIconClick(index)}
+              onClick={() => handleIconClick(index, card.power)}
               src={card.src}
-              alt={card.alt}
+              alt={card.power}
             />
           </motion.div>
         ))}

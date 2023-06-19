@@ -1,35 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./cardData.module.css";
+import { WitchCardData } from "../../Interfaces/WitchCardData";
 
-interface Data {
-  id: number;
-  name: string;
-  power: string;
-  description: string;
-  imageUrl: string;
-}
-
-export function CardData({
-  data,
-  activeIndex,
-}: {
-  data: Data[];
-  activeIndex: number;
-}) {
-  const [selectedIcon, setSelectedIcon] = useState<number | null>(null);
+export function CardData({ data }: { data: WitchCardData }) {
+  console.log(data.imageUrl);
   return (
     <>
-      {/* {data.map((item: any) => (
-        <li key={item.id}>{item.name}</li>
-      ))} */}
-      <span className={styles.witchName}>{data[activeIndex].name}</span>
+      <span className={styles.witchName}>{data.name}</span>
       <div className={styles.witchPower}>
-        <span className={styles.witchPowerName}>{data[activeIndex].power}</span>
+        <span className={styles.witchPowerName}>{data.power}</span>
       </div>
       <span>
-        <p>{data[activeIndex].description}</p>
+        <p>{data.description}</p>
       </span>
-      <img src={data[activeIndex].imageUrl}></img>
+      <img src={data.imageUrl}></img>
     </>
   );
 }
